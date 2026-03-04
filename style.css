@@ -226,6 +226,11 @@ body.fx-off .fx-global {
 }
 .nav__kicker {
   font-size: 11px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.nav__kicker:hover {
+  opacity: 0.9;
 }
 .nav__title {
   margin-top: 6px;
@@ -813,4 +818,115 @@ body.fx-off .fx-global {
   background: rgba(109, 255, 140, 0.1);
   border-color: rgba(109, 255, 140, 0.55);
   transform: translateY(-2px);
+}
+
+/* ========================= */
+/* TEAM STRUCTURE */
+/* ========================= */
+
+.org-chart {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--mono);
+}
+
+.org-level {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.org-row {
+  flex-direction: row;
+}
+
+.org-card {
+  padding: 10px 18px;
+  border: 1px solid rgba(109, 255, 140, 0.35);
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
+  text-align: center;
+  min-width: 160px;
+}
+
+.org-main {
+  border: 1px solid rgba(109, 255, 140, 0.7);
+  background: rgba(109, 255, 140, 0.08);
+}
+
+.org-title {
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.org-sub {
+  font-size: 11px;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+.org-line {
+  width: 2px;
+  height: 18px;
+  background: rgba(109, 255, 140, 0.3);
+}
+.archive-glitch {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--mono);
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: #8cffb5;
+  z-index: 9999;
+  opacity: 0.8;
+  animation: glitchFlash 0.5s linear;
+  pointer-events: none;
+}
+
+@keyframes glitchFlash {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.archive-id {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  font-size: 10px;
+  opacity: 0.35;
+  font-family: var(--mono);
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.void-message {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #a7ffc4;
+  opacity: 0.8;
+}
+.void-symbol {
+  position: fixed;
+  top: 20%;
+  left: 60%;
+  font-size: 18px;
+  opacity: 0.15;
+  pointer-events: none;
+  font-family: var(--mono);
 }

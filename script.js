@@ -38,3 +38,74 @@ function setActive(id) {
 navItems.forEach((btn) => {
   btn.addEventListener("click", () => setActive(btn.dataset.target));
 });
+// ===== ARCHIVE DESYNC GLITCH =====
+
+window.addEventListener("load", () => {
+  if (Math.random() < 0.05) {
+    // 5% шанс
+
+    const glitch = document.createElement("div");
+    glitch.className = "archive-glitch";
+    glitch.innerText = "ARCHIVE DESYNC";
+
+    document.body.appendChild(glitch);
+
+    setTimeout(() => {
+      glitch.remove();
+    }, 600);
+  }
+});
+document.querySelector(".archive-id").addEventListener("click", () => {
+  alert(`
+ARCHIVE LOG
+DATE: 2362.07.17
+
+Signal detected
+Source: Unknown
+`);
+});
+let logoClicks = 0;
+
+const logo = document.querySelector(".nav__kicker");
+
+if (logo) {
+  logo.addEventListener("click", () => {
+    logoClicks++;
+
+    if (logoClicks === 7) {
+      const msg = document.createElement("div");
+      msg.className = "void-message";
+      msg.innerText = "You feel something watching from maintenance.";
+
+      document.body.appendChild(msg);
+
+      setTimeout(() => msg.remove(), 4000);
+
+      logoClicks = 0;
+    }
+  });
+}
+setInterval(() => {
+  if (Math.random() < 0.03) {
+    const mark = document.createElement("div");
+    mark.className = "void-symbol";
+    mark.innerText = "◉";
+
+    document.body.appendChild(mark);
+
+    setTimeout(() => mark.remove(), 1200);
+  }
+}, 5000);
+document.addEventListener("mouseup", () => {
+  const text = window.getSelection().toString();
+
+  if (text.includes("В бездне нам всем будет комфортно")) {
+    const msg = document.createElement("div");
+    msg.className = "void-message";
+    msg.innerText = "SIGNAL DETECTED";
+
+    document.body.appendChild(msg);
+
+    setTimeout(() => msg.remove(), 2000);
+  }
+});
