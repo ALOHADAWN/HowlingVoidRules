@@ -29,17 +29,7 @@ body {
 }
 body {
   margin: 0;
-  background:
-    radial-gradient(
-      900px 520px at 50% 20%,
-      rgba(109, 255, 140, 0.1),
-      transparent 60%
-    ),
-    radial-gradient(
-      1200px 900px at 50% 120%,
-      rgba(0, 0, 0, 0.35),
-      rgba(0, 0, 0, 1)
-    );
+  background: var(--bg);
   position: relative;
   color: var(--text);
   font-family: var(--sans);
@@ -60,6 +50,10 @@ body::before {
 
   animation: bgSnow 0.55s steps(2, end) infinite;
   filter: contrast(140%) brightness(105%);
+}
+
+body.webgl-bg::before {
+  display: none;
 }
 
 @keyframes bgSnow {
@@ -493,6 +487,14 @@ body.fx-off .fx-global {
       rgba(0, 0, 0, 1)
     );
   overflow: hidden;
+}
+
+.vhs-bg__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .vhs-bg__snow {

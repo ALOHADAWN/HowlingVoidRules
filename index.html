@@ -9,12 +9,10 @@
 
   <body>
     <div class="vhs-bg" aria-hidden="true">
-      <div class="vhs-bg__snow"></div>
-      <div class="vhs-bg__bands"></div>
-      <div class="vhs-bg__drop"></div>
+      <canvas class="vhs-bg__canvas" id="vhs-bg-webgl"></canvas>
     </div>
 
-    <!-- Global VHS overlay (stable, no shaking) -->
+    <!-- Global VHS overlay -->
     <div class="fx-global" aria-hidden="true">
       <div class="fx-scan"></div>
       <div class="fx-noise"></div>
