@@ -1,5 +1,3 @@
-// ===== Timecode =====
-// ===== WebGL VHS background =====
 (() => {
   const canvas = document.getElementById("vhs-bg-webgl");
   if (!canvas) return;
@@ -11,20 +9,9 @@
       depth: false,
       stencil: false,
       powerPreference: "high-performance",
-    }) ||
-    canvas.getContext("experimental-webgl", {
-      alpha: false,
-      antialias: false,
-      depth: false,
-      stencil: false,
     });
 
-  if (!gl) {
-    canvas.remove();
-    return;
-  }
-
-  document.body.classList.add("webgl-bg");
+  if (!gl) return;
 
   const vertexShaderSource = `
     attribute vec2 a_position;
@@ -135,8 +122,6 @@
   const fragmentShader = createShader(gl.FRAGMENT_SHADER, fragmentShaderSource);
 
   if (!vertexShader || !fragmentShader) {
-    canvas.remove();
-    document.body.classList.remove("webgl-bg");
     return;
   }
 
@@ -147,8 +132,6 @@
 
   if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
     console.warn(gl.getProgramInfoLog(program));
-    canvas.remove();
-    document.body.classList.remove("webgl-bg");
     return;
   }
 
